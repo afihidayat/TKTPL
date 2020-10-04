@@ -5,11 +5,12 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
+    private var backPressedTime = 0L
     var START_MILLI_SECONDS = 60000L
 
     lateinit var countdown_timer: CountDownTimer
@@ -83,5 +84,13 @@ class MainActivity : AppCompatActivity() {
         return "aphyganteng"
     }
 
-
+    override fun onBackPressed() {
+        if (backPressedTime + 2000 > System.currentTimeMillis()){
+            super.onBackPressed()
+        }
+        else{
+            Toast.makeText(applicationContext, "Press back again to exit app", Toast.LENGTH_SHORT).show()
+        }
+        backPressedTime = System.currentTimeMillis()
+    }
 }
