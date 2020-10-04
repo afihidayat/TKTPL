@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun pauseTimer() {
 
+
         button.text = "Start"
         countdown_timer.cancel()
         isRunning = false
@@ -92,5 +93,9 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "Press back again to exit app", Toast.LENGTH_SHORT).show()
         }
         backPressedTime = System.currentTimeMillis()
+    }
+    override fun onPause() {
+        super.onPause()
+        isRunning = true
     }
 }
