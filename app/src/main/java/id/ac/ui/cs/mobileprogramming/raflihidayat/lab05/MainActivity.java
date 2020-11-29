@@ -45,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
         private static final int NORMAL_CLOSURE_STATUS = 1000;
         @Override
         public void onOpen(WebSocket webSocket, Response response) {
-            webSocket.send(abc.get(0));
+            for (int i =0 ;i <= arrayList.size(); i++){
+                webSocket.send(abc.get(i++));
+            }
+//            webSocket.send(abc.get(0));
             webSocket.close(NORMAL_CLOSURE_STATUS, "Goodbye !");
         }
         @Override
