@@ -7,20 +7,33 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
+
     <TextView
         android:id="@+id/onlyYou"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Input:"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
          />
+
+
+    <EditText
+        android:id="@+id/editText1"
+        android:hint="5"
+        android:inputType="number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:ems="10" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+         />
     <ListView
         android:id="@+id/wifiList"
         android:layout_width="match_parent"

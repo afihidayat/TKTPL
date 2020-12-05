@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
      */
-    public native int Jniint();
+    public native int Jniint(int input);
 
     private WifiManager wifiManager;
     private ListView listView;
@@ -49,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // https://www.youtube.com/watch?v=Plr6vUsOMp0
+        final EditText et = (EditText)findViewById(R.id.editText1);
+
         TextView tv = findViewById(R.id.onlyYou);
         tv.setText("JNIINT:");
 
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "JNI number is :" + String.valueOf(Jniint()) + " !", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, String.valueOf(Jniint(Integer.parseInt(et.getText().toString()))), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });

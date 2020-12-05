@@ -7,13 +7,13 @@
 #include <time.h>
 
 
-jint Jniint() {
+jint Jniint(int input) {
     srand((unsigned int) time(0));
     int intrandom = (rand() % (990 - 101)) + 101;
-    return intrandom;
+    return input;
 }
 JNIEXPORT jint JNICALL
-Java_id_ac_ui_cs_mobileprogramming_raflihidayat_lab05_MainActivity_Jniint(JNIEnv* env, jobject this)
+Java_id_ac_ui_cs_mobileprogramming_raflihidayat_lab05_MainActivity_Jniint(JNIEnv* env, jobject this, jint input)
 {
-return (jint) Jniint();
+return (jint) Jniint(input);
 }
